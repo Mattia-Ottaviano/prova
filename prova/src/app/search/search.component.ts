@@ -9,8 +9,19 @@ import { Formula1Service } from '../formula1.service';
 })
 export class SearchComponent {
   obsDrivers! : Observable<Object>;
-  constructor(public formula1 : Formula1Service) {
-    this.obsDrivers = formula1.searchDrivers();
-    this.obsDrivers.subscribe((data)=>console.log(data));
+  results: any;
+  query!: string;
+
+  constructor(public formula1 : Formula1Service) {}
+
+  submit(query:HTMLInputElement): void {
+    if (!query.value) {
+      return;
+    }
+
+    this.query = query.value;
+    this.obsDrivers = this.formula1.searchDrivers(this.query);
+    this.obsDrivers.subscribe((data)=> this.results = data);
+  
   }
 }

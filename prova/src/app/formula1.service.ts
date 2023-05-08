@@ -8,7 +8,7 @@ export class Formula1Service {
 
   constructor(private http: HttpClient) { }
 
-  searchDrivers() {
+  searchDrivers(query : string) {
     const url = `http://ergast.com/api/f1/drivers`;
     let obsDrivers = this.http.get(url);
     return obsDrivers;
