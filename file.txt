@@ -8,6 +8,7 @@ installazioni: pip install Flask-PyMongo
         
 avvio applicazione python: nodemon main.py
 
-installazione maps: npm install @angular/google-maps
+installazione maps: npm install @angular/google-maps 
+npm i @types/google-maps --save-dev
 
 link MongoDB: https://cloud.mongodb.com/user
