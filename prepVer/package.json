@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "-": "^0.0.1",
-    "@angular/cli": "^16.0.3"
+    "@angular/cli": "^16.0.3",
+    "@angular/google-maps": "^16.0.2"
   }
 }

@@ -18,7 +18,7 @@ def get_all_addresses():
     tombino = mongo.db.tombino
     output = []
     for s in tombino.find().limit(100):
-        output.append({"lat": s['lat'], "lng":s["lng"]})
+        output.append({"lat": s["lat"], "lng":s["lng"]})
                             
     return jsonify(output)
 
