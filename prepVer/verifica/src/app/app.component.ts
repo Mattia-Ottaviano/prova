@@ -18,11 +18,13 @@ export class AppComponent implements OnInit {
   markerOptions!: google.maps.MarkerOptions;
   center: any;
   url = "https://5000-mattiaottaviano-prova-jb11z90n9ry.ws-eu98.gitpod.io/"
+  //bottone show
   accendi: boolean = false
 
   constructor(public http: HttpClient) {
     this.center = { lat: 40.81132524491864, lng: -74.07094830575488 };
-
+  
+    //immagine tombini
     let iconData: google.maps.Icon = {
       url: './assets/img/hatch.png',
       scaledSize: new google.maps.Size(60, 60)
@@ -33,7 +35,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.markers = [];
-
+    //richiesta http di tutte le cordinate
     this.http.get<Prova[]>(this.url + "all").subscribe(data => {
       console.log(data)
       for (let d of data) {
@@ -50,6 +52,7 @@ export class AppComponent implements OnInit {
     this.accendi = !this.accendi
   }
 
+  //richiesta http di una cordinata random
   mostraDona() {
     this.markers = [];
     this.http.get<Prova>(this.url + "donatello").subscribe(data => {
@@ -58,6 +61,7 @@ export class AppComponent implements OnInit {
       let marker: Marker = new Marker(lat, lng);
       this.markers.push(marker)
 
+      //immagine
       let iconData: google.maps.Icon = {
         url: './assets/img/Yellowicon-Tmnt-Donatelo.ico',
         scaledSize: new google.maps.Size(60, 60)
