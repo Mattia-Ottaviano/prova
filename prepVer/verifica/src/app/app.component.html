@@ -1,6 +1,18 @@
 <google-map [center]="center">
-  <map-marker *ngFor="let m of markers; let i = index" 
-  [position]="{'lat': m.lat, 'lng': m.lng}" [label]="'marker'" [title]=" 'ciao'"></map-marker>
 
-  
+  <div *ngIf = "accendi">
+    <map-marker *ngFor="let m of markers; let i = index" [position]="{'lat': m.lat, 'lng': m.lng}"
+      [options]="markerOptions"></map-marker>
+  </div>
+
 </google-map>
+
+<button (click)="mostra()">show</button>
+
+<button (click)="mostraDona()">dona</button>
+
+<button (click)="mostraRaffa()">raffaello</button>
+
+<button (click)="mostraMichi()">michelangelo</button>
+
+<button (click)="mostraLeo()">leonardo</button>
