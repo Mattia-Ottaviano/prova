@@ -8,7 +8,7 @@ from flask import send_file
 app = Flask(__name__)
 
 # Stringa di connessione al DB
-app.config["MONGO_URI"] = "mongodb+srv://ottavianomattia:scrivania0921!1509@cluster0.jjjyhjc.mongodb.net/Relab" #Importante qui va specificato il nome del DB
+app.config["MONGO_URI"] = "mongodb+srv://ottavianomattia:<password>@cluster0.jjjyhjc.mongodb.net/Relab" #Importante qui va specificato il nome del DB
 
 mongo = PyMongo(app)
 # Per rispondere alle chiamate cross origin
