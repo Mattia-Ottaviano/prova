@@ -12,3 +12,6 @@ installazione maps: npm install @angular/google-maps
 npm i @types/google-maps --save-dev
 
 link MongoDB: https://cloud.mongodb.com/user
+
+
+pip freeze > requirements.txt
