@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class PaginaPokemonComponent {
 
+
+  //getLastPart(url) {
+  //  const parts = url.split('/');
+   // return parts.at(-1);
+  //}
 }

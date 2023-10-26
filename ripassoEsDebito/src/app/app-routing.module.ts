@@ -4,7 +4,7 @@ import { PaginaPokemonComponent } from './pagina-pokemon/pagina-pokemon.componen
 
 
 const routes: Routes = [
-  { path: 'pokemon/:path', component: PaginaPokemonComponent },
+  { path: "pokemon/:path", component: PaginaPokemonComponent },
 ];
 
 @NgModule({

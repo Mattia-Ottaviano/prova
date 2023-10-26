@@ -10,16 +10,23 @@ import { pokemonList } from './models/pokemon.model';
 })
 
 export class AppComponent {
+
   title = 'ripassoEsDebito';
-  obs! : Observable <pokemonList>
-  data! : pokemonList
+  obs!: Observable<pokemonList>
+  data!: pokemonList
 
   constructor(public http: HttpClient) {
     this.obs = this.http.get<pokemonList>("https://pokeapi.co/api/v2/type")
     this.obs.subscribe(this.dosomething)
   }
-  
-  dosomething = (data : pokemonList) => {
+
+  dosomething = (data: pokemonList) => {
     this.data = data;
   }
+
+  getLastPart(arg0: string) {
+    return arg0.split("/")[6]
+  }
+
+
 }

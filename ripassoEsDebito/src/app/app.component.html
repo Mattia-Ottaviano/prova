@@ -1,5 +1,5 @@
 <!--{{data|json}}-->
 <div *ngFor="let d of data.results">
-    {{d.name}}
+    <a routerLink="/pokemon/{{getLastPart(d.url)}}">{{d.name}}</a>
 </div>
-<router-outlet></router-outlet>
+<router-outlet></router-outlet> 
