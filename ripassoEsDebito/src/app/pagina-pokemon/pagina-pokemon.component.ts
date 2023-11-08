@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Listapokemon } from '../models/Listapokemon.model';
 
 @Component({
   selector: 'app-pagina-pokemon',
@@ -7,9 +10,15 @@ import { Component } from '@angular/core';
 })
 export class PaginaPokemonComponent {
 
+  obs!: Observable<Listapokemon>
+  data!: Listapokemon
 
-  //getLastPart(url) {
-  //  const parts = url.split('/');
-   // return parts.at(-1);
-  //}
+  constructor(public http: HttpClient) {
+    this.obs = this.http.get<Listapokemon>("https://pokeapi.co/api/v2/pokemon")
+    this.obs.subscribe(this.dosomething)
+  }
+
+  dosomething = (data: Listapokemon) => {
+    this.data = data;
+  }
 }

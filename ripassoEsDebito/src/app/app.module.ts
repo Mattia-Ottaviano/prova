@@ -4,11 +4,13 @@ import {HttpClientModule} from '@angular/common/http'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PaginaPokemonComponent } from './pagina-pokemon/pagina-pokemon.component';
+import { MainPageComponent } from './main-page/main-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PaginaPokemonComponent
+    PaginaPokemonComponent,
+    MainPageComponent
   ],
   imports: [
     BrowserModule,
