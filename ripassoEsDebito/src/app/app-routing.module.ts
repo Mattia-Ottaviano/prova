@@ -5,7 +5,7 @@ import { MainPageComponent } from './main-page/main-page.component';
 
 
 const routes: Routes = [
-  { path: "pokemon/:path", component: PaginaPokemonComponent },
+  { path: "type/:path", component: PaginaPokemonComponent },
   { path: "", component: MainPageComponent }
 ];
 

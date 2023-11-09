@@ -5,12 +5,12 @@ export interface Listapokemon {
     types: PokeType[]
   }
 
-export interface PokeType{
+interface PokeType{
     slot: number
     type: Categoria[]
 }
 
-export interface Categoria{
+interface Categoria{
     name: string,
     url: string
 }
