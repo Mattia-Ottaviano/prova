@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { Listapokemon } from '../models/Listapokemon.model';
+import { CaratteristichePokemon } from '../models/PokemonSpec.model';
+
 
 @Component({
   selector: 'app-pagina-pokemon',
@@ -10,15 +12,35 @@ import { Listapokemon } from '../models/Listapokemon.model';
 })
 export class PaginaPokemonComponent {
 
-  obs!: Observable<Listapokemon>
-  data!: Listapokemon
+  routeObs!: Observable<ParamMap>;
 
-  constructor(public http: HttpClient) {
-    this.obs = this.http.get<Listapokemon>("https://pokeapi.co/api/v2/pokemon")
-    this.obs.subscribe(this.dosomething)
+  pokemon: any; 
+  pokemonObs!: Observable<CaratteristichePokemon>;
+  data: any;
+
+  constructor(
+    private route: ActivatedRoute,
+    private http : HttpClient) { }
+  
+  ngOnInit(): void {
+      //Ottengo l'observable che notifica le informazioni sulla route attiva
+      this.routeObs = this.route.paramMap;
+      this.routeObs.subscribe(this.getRouterParam);
   }
 
-  dosomething = (data: Listapokemon) => {
+  getRouterParam = (params: ParamMap) => {
+    let pokemon = params.get('path'); //Ottengo l'id dalla ParamMap
+    console.log(pokemon); //Stampo su console
+    if (pokemon != null) {
+      this.pokemonObs = this.http.get<CaratteristichePokemon>(`https://pokeapi.co/api/v2/type/${pokemon}`)
+      this.pokemonObs.subscribe(this.dosomething)
+    }
+  }
+
+  dosomething=(data: any)=>{
     this.data = data;
+    console.log(this.data)
   }
+
+
 }
