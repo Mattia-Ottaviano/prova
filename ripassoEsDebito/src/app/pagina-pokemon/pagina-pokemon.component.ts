@@ -42,5 +42,11 @@ export class PaginaPokemonComponent {
     console.log(this.data)
   }
 
+  getLastPart(data: string){
+    let url = data.split("/").slice(-2)
+    console.log(url[0])
+    return url[0]
+  }
+
 
 }

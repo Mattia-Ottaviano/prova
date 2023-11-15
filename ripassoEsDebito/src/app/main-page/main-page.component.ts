@@ -22,8 +22,11 @@ export class MainPageComponent {
     this.data = data;
   }
 
-  getLastPart(arg0: string) {
-    return arg0.split("/")[6]
+  getLastPart(data: string){
+    let url = data.split("/").slice(-2)
+    console.log(url[0])
+    return url[0]
   }
-
 }
+
+

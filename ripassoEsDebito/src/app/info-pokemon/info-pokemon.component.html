@@ -1,1 +1,7 @@
-<p>info-pokemon works!</p>
+<h1>{{pokemonDetailsList.name}}</h1>
+<h3>Height:</h3> 
+<p>{{pokemonDetailsList.height}}</p>
+<h3>Moves:</h3>
+<ul *ngFor = "let move of pokemonDetailsList.moves">
+    <li>{{move.move.name}}</li>
+</ul>
